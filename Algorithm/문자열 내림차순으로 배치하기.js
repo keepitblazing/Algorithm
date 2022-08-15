@@ -1,4 +1,4 @@
-// ABDCEFvr -> vrFEDCBA
-let s = "ABDCEFvr"
-let c = Array.from(s).sort().reverse().join("")
-console.log(c)
+function solution(s) {
+  let c = Array.from(s).sort().reverse().join("");
+  return c;
+}
