@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git add .
+
 # 사용자에게 Level 선택하게 합니다.
 echo "Select a Level: LV0, LV1, LV2"
 read level
