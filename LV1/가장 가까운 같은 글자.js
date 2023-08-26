@@ -3,9 +3,9 @@ function solution(s) {
 
   return [...s].map((value, index) => {
     if (check[value] !== undefined) {
-      const frontDistance = index - check[value];
+      const distance = index - check[value];
       check[value] = index;
-      return frontDistance;
+      return distance;
     } else {
       check[value] = index;
       return -1;
