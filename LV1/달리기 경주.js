@@ -1,20 +1,19 @@
-//달리기 경주
-
 function solution(players, callings) {
-  let playersIndex = {};
+  const playerMap = {};
 
-  players.forEach((name, index) => {
-    playersIndex[name] = index;
-  });
+  for (let i = 0; i < players.length; i++) {
+    playerMap[players[i]] = i;
+  }
 
   for (let i = 0; i < callings.length; i++) {
-    let idx = playersIndex[callings[i]];
-    let chang = players[idx - 1];
+    const index = playerMap[callings[i]];
+    const temp = players[index - 1];
 
-    [players[index], players[index - 1]] = [players[index - 1], players[index]];
+    players[index - 1] = callings[i];
+    players[index] = temp;
 
-    playersindex[callings[i]] = index - 1;
-    playersindex[chang] = index;
+    playerMap[callings[i]] = index - 1;
+    playerMap[temp] = index;
   }
 
   return players;

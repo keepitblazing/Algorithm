@@ -1,17 +1,32 @@
 function solution(s) {
-  let stack = [];
   let count = 0;
-  for (let i = 0; i < s.length; i += 1) {
-    stack.push(s[i]);
-    const same = stack.filter((item) => item === stack[0]);
-    const notSame = stack.filter((item) => item !== stack[0]);
-    if (same.length === notSame.length) {
-      count += 1;
-      stack = [];
+  let index = 0;
+
+  while (index < s.length) {
+    let firstChar = s[index];
+    let firstCharCount = 1;
+    let otherCharCount = 0;
+    index++;
+
+    while (index < s.length) {
+      if (s[index] === firstChar) {
+        firstCharCount++;
+      } else {
+        otherCharCount++;
+      }
+
+      if (firstCharCount === otherCharCount) {
+        count++;
+        index++;
+        break;
+      }
+
+      index++;
+    }
+    if (firstCharCount !== otherCharCount) {
+      count++;
     }
   }
-  if (stack.length !== 0) {
-    count += 1;
-  }
+
   return count;
 }
