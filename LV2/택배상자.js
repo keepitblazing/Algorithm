@@ -1,5 +1,5 @@
 function solution(order) {
-  let stack = [];
+  let stack = []; //보조 컨테이너
   let count = 0;
   let currentIndex = 0;
 
