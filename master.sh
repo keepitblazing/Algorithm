@@ -30,13 +30,14 @@ index=1
 for file in *; do
     if [ -f "$file" ] && [ "$file" != "README.md" ]; then
         if [ "$level" -eq 0 ]; then
+            base_filename="${file%.*}" # 파일 확장자 제거
             js_mark="X"
             java_mark="X"
 
-            [[ -f "${file}.js" ]] && js_mark="O"
-            [[ -f "${file}.java" ]] && java_mark="O"
+            [[ -f "$base_filename.js" ]] && js_mark="O"
+            [[ -f "$base_filename.java" ]] && java_mark="O"
 
-            echo "| $index | $file | $js_mark | $java_mark |"
+            echo "| $index | $base_filename | $js_mark | $java_mark |"
         else
             echo "| $index | $file |"
         fi
