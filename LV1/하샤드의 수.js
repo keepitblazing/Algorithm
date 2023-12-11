@@ -1,14 +1,10 @@
 function solution(x) {
-  let answer = 0;
-  let arr = String(x).split("");
-
-  for (let i = 0; i < arr.length; i++) {
-    answer += Number(arr[i]);
-  }
-  if (x % answer == 0) {
-    answer = true;
-  } else {
-    answer = false;
-  }
-  return answer;
+  return (
+    x %
+      String(x)
+        .split("")
+        .map((v) => Number(v))
+        .reduce((acc, cur) => acc + cur) ===
+    0
+  );
 }
