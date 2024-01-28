@@ -1,19 +1,13 @@
-import java.util.*;
-
-class Solution {
-
-  public String[] solution(String[] names) {
-    ArrayList<String> answer = new ArrayList<>();
-    int count = 0;
-    for (int i = 0; i < names.length; i++) {
-      count++;
-      if (count == 1) {
-        answer.add(names[i]);
-      }
-      if (count == 5) {
-        count = 0;
-      }
+function solution(picture, k) {
+  let result = [];
+  for (let i = 0; i < picture.length; i++) {
+    let row = "";
+    for (let j = 0; j < picture[i].length; j++) {
+      row += picture[i][j].repeat(k);
     }
-    return answer.toArray(new String[0]);
+    for (let j = 0; j < k; j++) {
+      result.push(row);
+    }
   }
+  return result;
 }
