@@ -1,6 +1,6 @@
 function solution(numbers) {
-  const arr = numbers.split("");
-  const answer = new Set();
+  const arr = numbers.split(""); // ["1","7"]
+  const answer = new Set(); // 중복 없에주는 객체
   getNumber(arr, "");
   function getNumber(numbersArr, currentNumber) {
     if (numbersArr.length) {
