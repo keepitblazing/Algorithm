@@ -1,12 +1,13 @@
 function solution(name) {
   let answer = 0;
-  let min = name.length - 1;
+  let min = name.length - 1; //최소 이동 횟수
 
   for (let i = 0; i < name.length; i++) {
     let currentAlphabet = name.charCodeAt(i);
-
-    if (currentAlPhabet < 78) {
-      answer += currentAlphabet % 65;
+    //현재 알파벳이 N보다 작으면
+    if (currentAlphabet < 78) {
+      answer += currentAlphabet - 65;
+      // 현재 알파벳이 N보다 크면
     } else {
       answer += 91 - currentAlphabet;
     }
@@ -16,6 +17,7 @@ function solution(name) {
     while (nextIndex < name.length && name.charCodeAt(nextIndex) === 65) {
       nextIndex += 1;
     }
+
     min = Math.min(
       min,
       i * 2 + name.length - nextIndex,
